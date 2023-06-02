@@ -11,6 +11,7 @@ const app = express();
 
 const indexRouter = require("./routes/index");
 const authorRouter = require("./routes/authors");
+const bookRouter = require("./routes/books");
 
 mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,
@@ -29,5 +30,6 @@ app.use(bodyParser.urlencoded({ limit: "10mb", useNewUrlParser: true }));
 
 app.use("/", indexRouter);
 app.use("/authors", authorRouter);
+app.use("/books", bookRouter);
 
 app.listen(process.env.PORT || 3000);
